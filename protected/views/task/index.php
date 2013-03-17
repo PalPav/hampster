@@ -22,7 +22,6 @@
     }
 </style>
 <script src="/static/js/jquery-1.9.1.js"></script>
-<script src="/static/js/jquery-ui-1.10.2.custom.js"></script>
 
 
 
@@ -47,7 +46,7 @@ jQuery(document).ready(function(){
 
 echo "<div class='task-list'>";
 foreach ($data as $key => $task) {
-    echo "<div class='task-head'><div class='head-controls'><input type='button' value='+'><input type='button' value='X'></div>".$task['id']." ".$task['subject']." Сделать до : ".$task['end_time']."</div>";
+    echo "<div class='task-head'><div class='head-controls'>+/E/X</div>".$task['id']." ".$task['subject']." Сделать до : ".$task['end_time']."</div>";
     echo "<div class='task-container'><br><br> ".$task['body']."<br><br></div>";
 }
 echo "</div>";
