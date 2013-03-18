@@ -1,0 +1,62 @@
+.task-list {
+    width: 100%;
+    overflow:hidden;
+    padding:5px;
+    margin: 1px;
+}
+.task-container {
+    padding:10px;
+    display: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #f6f8fa;
+    border: 1px solid #cecece;
+}
+
+.task-head {
+    border-radius:5px ;
+    padding:10px;
+
+    border: 1px solid #cecece;
+}
+
+.task-head-opened {
+
+    border-radius: 5px 5px 0px 0px;
+}
+
+.head-controls {
+    float:right;
+    margin-top: -0.4em;
+}
+
+.head-time {
+    float:right;
+    margin-right: 10px;
+    font: normal small-caps 1em fantasy;
+}
+
+.head-title {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.1em;
+}
+
+.level-1 {
+    background-color: #ffbebe;
+}
+
+.level-2 {
+    background-color: #ffe294;
+}
+
+.level-3 {
+    background-color: #fffc9e;
+}
+
+.level-4 {
+    background-color: #c3ffb3;
+}
+
+.level-5 {
+    background-color:#c6e7ff ;
+}
