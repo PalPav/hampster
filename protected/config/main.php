@@ -80,7 +80,7 @@ return array(
 		*/
         'db'=>array(
             'class'=>'CDbConnection',
-            'connectionString'=>'pgsql:host=hampster.dev;port=5432;dbname=hampsters;',
+            'connectionString'=>'pgsql:host=192.168.1.7;port=5432;dbname=hampster;',
             'username'=>'postgres',
             'password'=>'rowin23Q#',
         ),
