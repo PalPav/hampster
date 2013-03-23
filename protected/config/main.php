@@ -35,7 +35,7 @@ return array(
             'userid'=>'id', //default: userid
             'username'=>'login', //default:username
             'delimeter'=>'@', //default:-
-            'debug'=>true, //default :false
+            'debug'=>false, //default :false
             'pageSize'=>15, // default : 15
             'superUser' =>'Сapybara', //default: Authorizer
             'css'=>'srbac.css', //default: srbac.css
