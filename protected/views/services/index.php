@@ -1,5 +1,6 @@
 <?php
-/* @var $this MainController */
+/* @var $this ServicesController */
+
 ?>
 <h1>Сервисы</h1>
 

@@ -1,7 +1,4 @@
 <link rel="stylesheet" type="text/css" href="/static/css/tasks.css" media="screen, projection" />
-<script src="/static/js/jquery/jquery-1.9.1.js"></script>
-
-
 
 <script>
 jQuery(document).ready(function(){
