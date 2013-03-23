@@ -6,16 +6,11 @@
 	<meta name="language" content="ru" />
     <link rel="icon" type="image/png" href="static/img/favicon.ico" />
 	<!-- blueprint CSS framework -->
-
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
-
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+    <script src="/static/js/jquery/jquery-1.9.1.js"></script>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -34,8 +29,8 @@
         if (!Yii::app()->user->isGuest){
             $this->widget('zii.widgets.CMenu',array(
                 'items'=>array(
-                    array('label'=>'Главная', 'url'=>array('/main/index')),
-                    array('label'=>'Сервисы', 'url'=>array('/main/services')),
+                    array('label'=>'Главная', 'url'=>array('/main/news')),
+                    array('label'=>'Сервисы', 'url'=>array('/services/index')),
                     array('label'=>'Роли и пользователи', 'url'=>array('/srbac'), 'visible'=>Yii::app()->user->checkAccess('srbac@AuthitemViewing')),
                     array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/hampster/logout'))
                 ),

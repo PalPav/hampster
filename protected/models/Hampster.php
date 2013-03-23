@@ -52,7 +52,7 @@ class Hampster extends CActiveRecord
             array('email, login, password, password2', 'required'),
             array('password2', 'compare', 'compareAttribute' => 'password'),
             array('email',    'match',   'pattern'    => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Не верный формат e-mail адреса.'),
-            array('login', 'match',   'pattern'    => '/^[A-Za-z0-9_\.-А-Яа-я\s,]+$/u','message'  => 'Логин содержит недопустимые символы.'),
+            array('login', 'match',   'pattern'    => '/^[A-Za-z0-9_\.\#-А-Яа-я\s,]+$/u','message'  => 'Логин содержит недопустимые символы.'),
             array('login, email',     'length',  'max' => '100', 'min' => '3',),
             array('password, password2', 'length',  'max' => '40',  'min' => '5',),
 			array('id, login, rock, roll, settings, email, registered, lastlogin', 'safe', 'on'=>'search'),

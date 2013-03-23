@@ -2,12 +2,26 @@
 
 class MainController extends Controller
 {
-    public $defaultAction = 'Index';
+    public $defaultAction = 'News';
 
-	public function actionIndex()
+	public function actionNews()
 	{
         if (!Yii::app()->user->isGuest){
-		    $this->render('index');
+            $dataProvider=new CActiveDataProvider('News', array(
+                'pagination'=>array(
+                    'pageSize'=>15,
+                    'pageVar'=>'page',
+                ),
+                'criteria'=>array(
+                    'order'=>'created DESC',
+                    'with'=>array('hampster'),
+                ),
+
+
+            ));
+            $this->render('news',array(
+                'dataProvider'=>$dataProvider,
+            ));
         }
         else {
             $this->redirect(Yii::app()->user->returnUrl.'?r=hampster/login');
