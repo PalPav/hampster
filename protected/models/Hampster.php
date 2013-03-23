@@ -12,9 +12,16 @@
  * @property string $email
  * @property string $registered
  * @property string $lastlogin
+ * @property string $password
+ * @property string $password2
  */
+
+
 class Hampster extends CActiveRecord
 {
+
+    public $password;
+    public $password2;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -42,8 +49,12 @@ class Hampster extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('login, rock, roll, settings, email, registered, lastlogin', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
+            array('email, login, password, password2', 'required'),
+            array('password2', 'compare', 'compareAttribute' => 'password'),
+            array('email',    'match',   'pattern'    => '/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/', 'message' => 'Не верный формат e-mail адреса.'),
+            array('login', 'match',   'pattern'    => '/^[A-Za-z0-9_\.-А-Яа-я\s,]+$/u','message'  => 'Логин содержит недопустимые символы.'),
+            array('login, email',     'length',  'max' => '100', 'min' => '3',),
+            array('password, password2', 'length',  'max' => '40',  'min' => '5',),
 			array('id, login, rock, roll, settings, email, registered, lastlogin', 'safe', 'on'=>'search'),
 		);
 	}
@@ -65,14 +76,16 @@ class Hampster extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'login' => 'Login',
-			'rock' => 'Rock',
-			'roll' => 'Roll',
-			'settings' => 'Settings',
-			'email' => 'Email',
-			'registered' => 'Registered',
-			'lastlogin' => 'Lastlogin',
+			'id' => '#',
+			'login' => 'Хомяк',
+			'rock' => 'Что',
+			'roll' => 'Кто',
+			'settings' => 'Настройки',
+			'email' => 'Почта',
+			'registered' => 'Регистрация',
+			'lastlogin' => 'Забегал',
+            'password' => 'Заначку сюда',
+            'password2' => 'и еще разочек сюда'
 		);
 	}
 
