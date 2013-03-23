@@ -598,6 +598,38 @@ class AuthitemController extends SBaseController {
     $this->render('assignments', array("id" => 0));
   }
 
+
+    public function actionHampsters() {
+        $dataProvider=new CActiveDataProvider('Hampster');
+        $this->render('hampsters/hampsters',array(
+            'dataProvider'=>$dataProvider,
+        ));
+    }
+
+
+    public function actionAddHampster()
+    {
+        $model=new Hampster;
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Hampster']))
+        {
+            $salt = substr(str_replace('+', '.', base64_encode(sha1(str_shuffle(microtime(true).$_POST['Hampster']['login']), true))), 0, 22);
+            $hash = crypt($_POST['Hampster']['password'], '$2a$12$' . $salt);
+            $_POST['Hampster']['rock']=$hash;
+            $_POST['Hampster']['roll']=$salt;
+            $model->attributes=$_POST['Hampster'];
+
+            if($model->save())
+                $this->redirect(array('authitem/hampsters','id'=>$model->id));
+        }
+        $this->render('hampsters/addhampster',array(
+            'model'=>$model,
+        ));
+    }
+
   /**
    * Show a user's assignments.The user is passed by $_GET
    */

@@ -125,6 +125,8 @@ return array (
     "No authItems that don't belong to a controller were found"=>"Нет элементов не принадлежащих контроллерам",
     "select user"=>"Выбрать пользователя",
     "Assignments of user"=>"Права пользователя",
+    "Users"=>"Пользователи",
+
 
 
 

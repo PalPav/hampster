@@ -451,3 +451,15 @@ div.installError {
     margin: 5px;
 }
 
+.grid-container{
+    margin: 0 10px 0 10px;
+}
+
+.form-container{
+    margin: 0 10px 0 10px;
+}
+
+.grid-header{
+    margin: 0 0 -10px 0;
+}
+

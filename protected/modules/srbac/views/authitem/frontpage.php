@@ -59,6 +59,20 @@
                 ""),
             array('authitem/assignments'));?>
     </div>
+    <div class="iconBox">
+    <?php echo SHtml::link(
+          SHtml::image($this->module->getIconsPath().'/adduser.png',
+              Helper::translate('srbac','Users'),
+              array('class'=>'icon',
+                  'title'=>Helper::translate('srbac','Users'),
+                  'border'=>0
+              )
+          )." " .
+              ($this->module->iconText ?
+                  Helper::translate('srbac','Users') :
+                  ""),
+          array('authitem/hampsters'));?>
+    </div>
   </div>
     <div class="reset"></div>
 </div>
