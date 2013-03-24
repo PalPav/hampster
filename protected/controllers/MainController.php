@@ -6,10 +6,9 @@ class MainController extends Controller
 
 	public function actionNews()
 	{
-        if (!Yii::app()->user->isGuest){
             $dataProvider=new CActiveDataProvider('News', array(
                 'pagination'=>array(
-                    'pageSize'=>15,
+                    'pageSize'=>10,
                     'pageVar'=>'page',
                 ),
                 'criteria'=>array(
@@ -22,10 +21,6 @@ class MainController extends Controller
             $this->render('news',array(
                 'dataProvider'=>$dataProvider,
             ));
-        }
-        else {
-            $this->redirect(Yii::app()->user->returnUrl.'?r=hampster/login');
-        }
 	}
 
     public function actionError()
