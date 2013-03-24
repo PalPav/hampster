@@ -29,6 +29,13 @@ class SBaseController extends CController {
    * @return boolean true if access is granted else false
    */
   protected function beforeAction($action) {
+
+      if (Yii::app()->user->isGuest AND $action->controller->id!='hampster' AND $action->id!='login'){
+          $this->redirect( Yii::app()->request->baseUrl.'/index.php?r=hampster/login');
+          Yii::app()->end();
+      }
+
+
     $del = Helper::findModule('srbac')->delimeter;
     //srbac access
     $mod = $this->module !== null ? $this->module->id . $del : "";
