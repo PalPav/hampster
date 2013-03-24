@@ -18,7 +18,7 @@ class HampsterController extends Controller
     public function actionLogin()
     {
         if (!Yii::app()->user->isGuest){
-            $this->redirect(Yii::app()->user->returnUrl.'?r=main/index');
+            $this->redirect(Yii::app()->user->returnUrl.'?r=news/index');
         }
         $model=new LoginForm;
 
