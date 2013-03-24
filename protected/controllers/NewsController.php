@@ -1,19 +1,26 @@
 <?php
 
-class MainController extends Controller
+class NewsController extends Controller
 {
-    public function actionError()
+
+    public function actionIndex()
     {
-        if($error=Yii::app()->errorHandler->error)
-        {
-            if(Yii::app()->request->isAjaxRequest)
-                echo $error['message'];
-            else
-                $this->render('error', $error);
-        }
+        $dataProvider=new CActiveDataProvider('News', array(
+            'pagination'=>array(
+                'pageSize'=>10,
+                'pageVar'=>'page',
+            ),
+            'criteria'=>array(
+                'order'=>'created DESC',
+                'with'=>array('hampster'),
+            ),
+
+
+        ));
+        $this->render('index',array(
+            'dataProvider'=>$dataProvider,
+        ));
     }
-
-
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

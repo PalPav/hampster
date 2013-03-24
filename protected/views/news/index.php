@@ -4,17 +4,13 @@
 <script>
     jQuery(document).ready(function(){
         $('.news-item').on('click','.news-comment-header', function() {
-/*            $(this).toggleClass('task-head-opened');*/
+            /*            $(this).toggleClass('task-head-opened');*/
             $(this).next().slideToggle('fast');
         });
     });
 </script>
 
-<?php
-/* @var $this MainController */
-?>
-
-<h1>Хомячьи новости )</h1>
+<h1>Хомячьи новости</h1>
 <?php
 
 $this->widget('zii.widgets.CListView', array(

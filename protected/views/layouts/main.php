@@ -29,7 +29,7 @@
         if (!Yii::app()->user->isGuest){
             $this->widget('zii.widgets.CMenu',array(
                 'items'=>array(
-                    array('label'=>'Главная', 'url'=>array('/main/news')),
+                    array('label'=>'Главная', 'url'=>array('/news/index')),
                     array('label'=>'Сервисы', 'url'=>array('/services/index')),
                     array('label'=>'Роли и пользователи', 'url'=>array('/srbac'), 'visible'=>Yii::app()->user->checkAccess('srbac@AuthitemViewing')),
                     array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/hampster/logout'))
