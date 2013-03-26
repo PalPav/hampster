@@ -55,7 +55,7 @@ class Hampster extends CActiveRecord
             array('login', 'match',   'pattern'    => '/^[A-Za-z0-9_\.\#-А-Яа-я\s,]+$/u','message'  => 'Логин содержит недопустимые символы.'),
             array('login, email',     'length',  'max' => '100', 'min' => '2',),
             array('password, password2', 'length',  'max' => '40',  'min' => '5',),
-			array('id, login, rock, roll, settings, email, registered, lastlogin', 'safe', 'on'=>'search'),
+			array('id, login, settings, email, registered, lastlogin', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -102,8 +102,6 @@ class Hampster extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('login',$this->login,true);
-		$criteria->compare('rock',$this->rock,true);
-		$criteria->compare('roll',$this->roll,true);
 		$criteria->compare('settings',$this->settings,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('registered',$this->registered,true);

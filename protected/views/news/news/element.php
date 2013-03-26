@@ -6,11 +6,23 @@
  * Time: 17:39
  * To change this template use File | Settings | File Templates.
  */
+
+
+
+
+        $commentsProvider=new CActiveDataProvider('NewsComments', array(
+            'criteria'=>array(
+                'condition'=>'news_id='.$data->id,
+                'order'=>'created asc',
+                'with'=>array('hampster'),
+            )
+        ));
+
 ?>
 <div class='news-item'>
     <table class="news">
         <tr class="news-header">
-            <td class="news-avatar" rowspan="2" width=100px align=center><img class="avatar" src="<?php echo Yii::app()->request->baseUrl; ?>/static/img/avatars/1.jpg" height="100px" width="100px"></td>
+            <td class="comment-avatar" rowspan="2" width=100px align=center><img class="avatar" src="<?php echo Yii::app()->request->baseUrl; ?>/static/img/avatars/<?php echo Yii::app()->user->id; ?>.jpg" height="100px" width="100px"></td>
             <td class="news-subject">
                 <?php
                 echo "#".$data->id." ".$data->subject;
@@ -20,7 +32,7 @@
         <tr>
             <td class="news-head-info">
                 <?php
-                echo "Добавил то хоть кто ?  Дык ".$data->hampster->login.". А когда ? Дык ".substr($data->created,0,19);
+                echo "Кто :".$data->hampster->login.". Когда :".substr($data->created,0,16);
                 ?>
             </td>
         </tr>
@@ -34,7 +46,25 @@
           Что хомяки то думают...
     </div>
     <div class="news-comment-body">
-        Глав хомяк еще не сделал комменты вот ленивая сволочь!
+        <?php
+        $comment = $commentsProvider->getData();
+        foreach($comment as $i => $item) {
+            Yii::app()->controller->renderPartial('news/comment',
+                array('index' => $i, 'data' => $item, 'widget' => $this));
+        }
+        ?>
+
+        <div class='comment-item' align=center>
+            <table class="comment">
+                <tr>
+                    <td>
+                        Автообновления ветки после вствки коммента еще нет )) Так что жамкаем F5 после того как добавили коммент))
+                        <textarea class="new-comment" rows=5 cols=115></textarea><input type="hidden" class='news-id' value="<?php echo $data->id; ?>">
+                        <div class="comment-button add">Пипипи!!</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
 

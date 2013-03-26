@@ -58,12 +58,51 @@
 }
 
 .news-comment-body {
-    display:none;
-    padding: 5px 20px 5px 20px;
-    margin: 0 3px 0 20px;
+    margin: 0 3px 0 10px;
     font-size: 1em;
     text-align: right;
-    background-color: #f2f0e1;
+    background-color: #fffdfe;
     border: #e6e4d5 solid 2px;
     border-radius: 0 0 3px 3px;
+
+}
+
+
+
+.comment {
+    width: 99%;
+    margin-bottom: 0px;
+    border-bottom: 2px solid gray;
+}
+
+.comment-avatar {
+    vertical-align: top;
+}
+
+.comment-head {
+    text-align: right;
+    height: 1em;
+}
+
+.comment-body{
+    padding-right: 3px;
+}
+
+.comment-footer {
+    text-align: right;
+    height: 1em;
+}
+
+.new-comment {
+    resize: none;
+}
+.comment-button {
+    float:right;
+    border: 1px solid #000000;
+    padding: 0 2px 0 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
