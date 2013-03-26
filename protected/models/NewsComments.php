@@ -45,7 +45,7 @@ class NewsComments extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('body, hampster_id, created, edited, news_id', 'required'),
+			array('body, hampster_id, news_id', 'required'),
 			array('hampster_id, news_id, parent_id, level', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -61,7 +61,7 @@ class NewsComments extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'hampster' => array(self::BELONGS_TO, 'UsrHampster', 'hampster_id'),
+			'hampster' => array(self::BELONGS_TO, 'Hampster', 'hampster_id'),
 			'news' => array(self::BELONGS_TO, 'News', 'news_id'),
 		);
 	}
