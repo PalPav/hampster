@@ -22,7 +22,7 @@
 <div class='news-item'>
     <table class="news">
         <tr class="news-header">
-            <td class="comment-avatar" rowspan="2" width=100px align=center><img class="avatar" src="<?php echo Yii::app()->request->baseUrl; ?>/static/img/avatars/<?php echo Yii::app()->user->id; ?>.jpg" height="100px" width="100px"></td>
+            <td class="comment-avatar" rowspan="2" width=100px align=center><img class="avatar" src="<?php echo Yii::app()->request->baseUrl; ?>/static/img/avatars/<?php echo $data->hampster_id; ?>.jpg" height="100px" width="100px"></td>
             <td class="news-subject">
                 <?php
                 echo "#".$data->id." ".$data->subject;
