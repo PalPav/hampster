@@ -10,13 +10,7 @@
 
 
 
-        $commentsProvider=new CActiveDataProvider('NewsComments', array(
-            'criteria'=>array(
-                'condition'=>'news_id='.$data->id,
-                'order'=>'created asc',
-                'with'=>array('hampster'),
-            )
-        ));
+
 
 ?>
 <div class='news-item'>
@@ -46,31 +40,20 @@
           Что хомяки то думают...
     </div>
     <div class="news-comment-body">
-        <?php
-        $comment = $commentsProvider->getData();
-        foreach($comment as $i => $item) {
-            Yii::app()->controller->renderPartial('news/comment',
-                array('index' => $i, 'data' => $item, 'widget' => $this));
-        }
-        ?>
-
+        <div class="news-comment-branch">
+            <?php echo $this->actionGetCommentBranch($data->id);?>
+        </div>
         <div class='comment-item' align=center>
-            <table class="comment">
+            <table class='comment'>
                 <tr>
                     <td>
-                        Автообновления ветки после вствки коммента еще нет )) Так что жамкаем F5 после того как добавили коммент))
-                        <textarea class="new-comment" rows=5 cols=115></textarea><input type="hidden" class='news-id' value="<?php echo $data->id; ?>">
-                        <div class="comment-button add">Пипипи!!</div>
+                        <textarea class='new-comment'></textarea><input type='hidden' class='news-id' value='<?php echo $data->id; ?>'>
+                        <input type='button' class='comment-button add' value='Пипипи!!'>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-
-
-
-
-
 </div>
 
 

@@ -94,15 +94,12 @@
 }
 
 .new-comment {
+    width: 820px;
+    height: 100px;
     resize: none;
 }
 .comment-button {
     float:right;
-    border: 1px solid #000000;
     padding: 0 2px 0 2px;
-    border-radius: 3px;
-    cursor: pointer;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    user-select: none;
+
 }

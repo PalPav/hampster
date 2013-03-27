@@ -41,11 +41,36 @@ class NewsController extends Controller
             if(!$resp['success']){
                 $resp['errors']=$comment->getErrors();
             }
+            else {
+                $resp['htmldata']=$this->actionGetCommentBranch($news_id);
+            }
 
-            $comment->getErrors();
         }
+
         echo json_encode($resp);
-        Yii::app()->end();
+
+    }
+
+
+    public function actionGetCommentBranch($news_id)
+    {
+            $code='';
+            $commentsProvider=new CActiveDataProvider('NewsComments', array(
+            'pagination'=>false,
+            'criteria'=>array(
+            'condition'=>'news_id='.$news_id,
+            'order'=>'created asc',
+            'with'=>array('hampster'),
+            )
+            ));
+            $comment = $commentsProvider->getData();
+            foreach($comment as $i => $item) {
+            $code.=$this->renderPartial('news/comment',array('index' => $i, 'data' => $item, 'widget' => $this), true);
+            }
+
+            return $code;
+
+
     }
 	// Uncomment the following methods and override them if needed
 	/*
