@@ -14,18 +14,22 @@
             var elem = this;
             var tr = $(elem).closest("tr");
             var row = {};
-            row['text']=$(tr).find('.new-comment').val();
+            var area =$(tr).find('.new-comment');
+            row['text']=$(area).val();
             row['news_id']=$(tr).find('.news-id').val();
-            row['level']=0;
+            row['level']=1;
 
             $.post("/index.php?r=news/CommentAdd",row,function(data){
                 data = $.parseJSON(data);
                 console.log(data);
                 if (data.success==true){
-                        //тут делаем вставку элемента перед нашей формой попробовать сфетчить готовый элемент
+                    $(elem).closest(".news-comment-body").find('.news-comment-branch').html(data.htmldata);
+                    $(area).val("");
+                        //мне кажется или можно по проще
                 }
                 else if (data.success==false) {
                         //иначе что там не прошло валидацию!
+
                 }
             });
 
