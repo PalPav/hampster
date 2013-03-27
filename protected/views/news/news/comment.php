@@ -18,7 +18,7 @@
             </td>
         </tr>
         <tr>
-            <td class="comment-avatar" width=80px align=center><img class="avatar" src="<?php echo Yii::app()->request->baseUrl; ?>/static/img/avatars/<?php echo Yii::app()->user->id; ?>.jpg" height="70px" width="70px"></td>
+            <td class="comment-avatar" width=80px align=center><img class="avatar" src="<?php echo Yii::app()->request->baseUrl; ?>/static/img/avatars/<?php echo $data->hampster_id; ?>.jpg" height="70px" width="70px"></td>
             <td class="comment-body">
                 <?php
                 echo '&nbsp;&nbsp;&nbsp;'.$data->body;
