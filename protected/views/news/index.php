@@ -18,7 +18,7 @@
             row['news_id']=$(tr).find('.news-id').val();
             row['level']=0;
 
-            $.post("/inpdex.php?r=news/CommentAdd",row,function(data){
+            $.post("/index.php?r=news/CommentAdd",row,function(data){
                 data = $.parseJSON(data);
                 console.log(data);
                 if (data.success==true){
