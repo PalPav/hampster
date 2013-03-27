@@ -4,7 +4,7 @@ class TaskController extends Controller
 {
 	public function actionIndex()
 	{
-        $data=Task::getTasksByHampster(Yii::app()->user->id);
+        $data=Task::getTasksByHampster(1);
 
 		$this->render('index',array('data' => $data));
 	}
