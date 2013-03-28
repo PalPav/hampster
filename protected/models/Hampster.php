@@ -35,6 +35,10 @@ class Hampster extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+
+
+
+
 	public function tableName()
 	{
 		return 'main.usr_hampster';
@@ -70,6 +74,11 @@ class Hampster extends CActiveRecord
 		);
 	}
 
+
+    public function touchtouch()
+    {
+
+    }
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -83,7 +92,7 @@ class Hampster extends CActiveRecord
 			'settings' => 'Настройки',
 			'email' => 'Почта',
 			'registered' => 'Регистрация',
-			'lastlogin' => 'Забегал',
+                'lastlogin' => 'Забегал',
             'password' => 'Заначку сюда',
             'password2' => 'и еще разочек сюда'
 		);

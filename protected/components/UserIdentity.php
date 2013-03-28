@@ -7,6 +7,9 @@
  */
 class UserIdentity extends CUserIdentity
 {
+    //$salt = substr(str_replace('+', '.', base64_encode(sha1(str_shuffle(microtime(true).$this->username), true))), 0, 22);
+    //var_dump($salt);
+    //$hash = crypt('ast81CLONE#', '$2a$12$' . $salt);
     // Будем хранить id.
     protected $_id;
 	/**
@@ -25,10 +28,6 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 
-        //$salt = substr(str_replace('+', '.', base64_encode(sha1(str_shuffle(microtime(true).$this->username), true))), 0, 22);
-
-        //var_dump($salt);
-        //$hash = crypt('ast81CLONE#', '$2a$12$' . $salt);
 
         $record=Hampster::model()->findByAttributes(array('login'=>$this->username));
 
@@ -40,12 +39,13 @@ class UserIdentity extends CUserIdentity
         }
         else
         {
+            //Запоминаем id
             $this->_id = $record->id;
 
-            // Далее логин нам не понадобится, зато имя может пригодится
-            // в самом приложении. Используется как Yii::app()->user->name.
-            // realName есть в нашей модели. У вас это может быть name, firstName
-            // или что-либо ещё.
+            //Обновляем время последнего входа
+            $record->lastlogin = new CDbExpression("NOW()");
+            $record->update(array('lastlogin'));
+
             $this->errorCode=self::ERROR_NONE;
         }
         return !$this->errorCode;
