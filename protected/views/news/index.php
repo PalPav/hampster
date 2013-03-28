@@ -5,12 +5,10 @@
     jQuery(document).ready(function(){
 
         $('.news-item').on('click','.news-comment-header', function() {
-            /*            $(this).toggleClass('task-head-opened');*/
             $(this).next().slideToggle('fast');
         });
 
         $('.comment-item').on('click','.add', function() {
-            /*            $(this).toggleClass('task-head-opened');*/
             var elem = this;
             var tr = $(elem).closest("tr");
             var row = {};
@@ -29,25 +27,10 @@
                 }
                 else if (data.success==false) {
                         //иначе что там не прошло валидацию!
-
                 }
             });
-
         });
-
-
-
-
-
-
     });
-
-
-
-
-
-
-
 
 </script>
 
