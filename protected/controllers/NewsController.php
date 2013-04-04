@@ -26,10 +26,11 @@ class NewsController extends Controller
     {
         $request = Yii::app()->request;
         $body = $request->getPost('text',false);
-        $news_id = $request->getPost('news_id',false);
-        $level = $request->getPost('level',1);
+        $news_id = (int)$request->getPost('news_id',false);
+        $level = (int)$request->getPost('level',1);
         $resp= array();
         $resp['success']=false;
+        $body = htmlspecialchars($body);
         If ($body AND $news_id){
 
             $comment=new NewsComments;
