@@ -58,6 +58,7 @@
 }
 
 .news-comment-body {
+    display: none;
     margin: 0 3px 0 10px;
     font-size: 1em;
     text-align: right;
