@@ -11,9 +11,14 @@
 <div class='comment-item' align=center>
     <table class="comment">
         <tr>
-            <td class="comment-head" colspan="2">
+            <td class="comment-head">
                 <?php
-                echo '<span>'.$data->hampster->login." ".substr($data->created,0,16);
+                echo "<span>".$data->hampster->login."</span>";
+                ?>
+            </td>
+            <td class="comment-head">
+                <?php
+                echo "<span>".substr($data->created,0,16)."</span>";
                 ?>
             </td>
         </tr>
@@ -21,13 +26,12 @@
             <td class="comment-avatar" width=80px align=center><img class="avatar" src="<?php echo Yii::app()->request->baseUrl; ?>/static/img/avatars/<?php echo $data->hampster_id; ?>.jpg" height="70px" width="70px"></td>
             <td class="comment-body">
                 <?php
-                echo '&nbsp;&nbsp;&nbsp;'.$data->body;
+                echo $data->body;
                 ?>
             </td>
         </tr>
         <tr>
             <td class="comment-footer" colspan="2">
-                Ответить
             </td>
         </tr>
     </table>
