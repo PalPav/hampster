@@ -1,0 +1,55 @@
+.link-item {
+    margin-bottom: 5px;
+    width: 100%;
+    border: 3px olive double;
+    border-radius: 5px;
+    background-color: #fff2d8;
+}
+
+.link {
+    width: 99%;
+    margin: 5px;
+}
+
+
+.link-time {
+    text-align: right;
+    width: 110px;
+    border-radius: 5px;
+    background-color: #cdffc7;
+}
+
+
+.link-time >span{
+    cursor: default;
+}
+
+.link-tags >a{
+    text-decoration: none;
+}
+
+.link-owner {
+    text-align: right;
+}
+
+
+.link-favicon {
+    width: 16px;
+    border-radius: 3px;
+    border: 2px outset black;
+    display: inline-block;
+    padding: 1px;
+    background: white;
+
+}
+
+.link-subject {
+    text-align: left;
+
+}
+
+.link-actions {
+    float:right;
+    margin: -2px 0 -7px 0px;
+}
+
