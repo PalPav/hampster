@@ -45,12 +45,28 @@ class TagGrinder extends CFormModel
 
     }
 
+    public function getRow($link_id)
+    {
+        $link_id = (int)$link_id;
+        $row="";
+        if ($link_id){
+            $tags= LinkTag::model()->with('tag')->findAll(array('condition'=>'link_id='.$link_id));
+            foreach ($tags as $tag) {
+                if ($row!=""){$row.=",";}
+                $row.=$tag->tag->tag;
+            }
+        }
+        return $row;
+    }
+
     public function grind($link_id)
     {
         $link_id=(int)$link_id;
         if ($link_id) {
             $tagsd=$this->tags;
             $tagsd=explode(",",$tagsd);
+
+            LinkTag::model()->deleteAll(array('condition'=>'link_id='.$link_id));
 
             foreach ($tagsd as $i => $tag){
                 $tag=trim($tag);
@@ -64,11 +80,8 @@ class TagGrinder extends CFormModel
                         $id=$ntag->id;
                     }
                 }
+                $lt = new LinkTag;
 
-                $lt= LinkTag::model()->findByPk(array('link_id'=>$link_id,'tag_id'=>$id));
-                if (is_null($lt)) {
-                    $lt = new LinkTag;
-                }
                 $lt->link_id=$link_id;
                 $lt->tag_id=$id;
                 $lt->save();

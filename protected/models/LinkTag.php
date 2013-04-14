@@ -52,6 +52,7 @@ class LinkTag extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
             'link' => array(self::MANY_MANY, 'Link', 'lnk_link(link_id)'),
+            'tag' => array(self::BELONGS_TO, 'Tag', 'tag_id'),
 		);
 	}
 
