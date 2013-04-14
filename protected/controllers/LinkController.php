@@ -23,10 +23,8 @@ class LinkController extends Controller
         ));
 	}
 
-    public function actionAddLink()
+    public function actionAdd()
     {
-
-
 
         $link = new Link;
         $tags = new TagGrinder;
@@ -60,9 +58,11 @@ class LinkController extends Controller
 
     }
 
-    public function actionLinkEdit()
+    public function actionEdit()
     {
-
+        if (isset($_GET['id'])) {
+            
+        }
     }
 
     public function actionLinkDrop()
