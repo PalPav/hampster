@@ -51,5 +51,9 @@
 .link-actions {
     float:right;
     margin: -2px 0 -7px 0px;
+    text-decoration: none;
 }
 
+.link-actions > a{
+    text-decoration: none;
+}

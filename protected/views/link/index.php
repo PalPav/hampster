@@ -7,7 +7,7 @@
 </h3>
 </br>
 <?php
-echo CHtml::button('Моя нашел что принычить !', array('submit' => array('link/addlink')));
+echo CHtml::button('Моя нашел что принычить !', array('submit' => array('link/add')));
 
 //Добавить фильтры
 // цвета ссылок от чего зависят ? // Может сделать линки свернутыми ?

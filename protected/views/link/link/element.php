@@ -51,7 +51,7 @@
             </td>
             <td>
                 <span class="link-actions">
-                    <input type='button' name='edit' value='E' title='Редактировать' data-id='<?php echo $data->id;?>'><input type='button' name='recheck' value='R' title='Проверено'><input type='button' name='drop' value='X' title='Удалить'>
+                    <a href="/index.php?r=link/edit&id=<?php echo $data->id;?>"><input type='button' name='edit' value='E' title='Редактировать'></a><input type='button' name='recheck' value='R' title='Проверено'><input type='button' name='drop' value='X' title='Удалить'>
                 </span>
             </td>
         </tr>
