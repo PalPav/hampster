@@ -51,7 +51,7 @@
             </td>
             <td>
                 <span class="link-actions">
-                    <a href="/index.php?r=link/edit&id=<?php echo $data->id;?>"><input type='button' name='edit' value='E' title='Редактировать'></a><input type='button' name='recheck' value='R' title='Проверено'><input type='button' name='drop' value='X' title='Удалить'>
+                    <?php if($data->hampster_id==Yii::app()->user->id OR Yii::app()->user->checkAccess('Cavy')) {?><a href="/index.php?r=link/edit&id=<?php echo $data->id;?>"><input type='button' name='edit' value='E' title='Редактировать'></a><?php }?><input type='button' name='recheck' value='R' title='Проверено'><input type='button' name='drop' value='X' title='Удалить'>
                 </span>
             </td>
         </tr>

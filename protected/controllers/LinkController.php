@@ -28,7 +28,47 @@ class LinkController extends Controller
 
         $link = new Link;
         $tags = new TagGrinder;
+        $this->getNsave($link,$tags);
 
+    }
+
+    public function actionLinkChecked()
+    {
+
+    }
+
+    public function actionEdit()
+    {
+
+
+        if (isset($_GET['id'])) {
+            $id=(int)$_GET['id'];
+            if ($id) {
+                $link = Link::model()->findByPk($id);
+                if (!is_null($link)) {
+                    if ($link->hampster_id==Yii::app()->user->id OR Yii::app()->user->checkAccess('Cavy')){
+                        $tags = new TagGrinder;
+                        $tags->tags=$tags->getRow($id);
+                        $this->getNsave($link,$tags);
+                    }
+
+                }
+                else {
+                    throw new CHttpException(404,'Ссылка не найдена.');
+                }
+
+            }
+
+        }
+    }
+
+    public function actionLinkDrop()
+    {
+
+    }
+
+
+    private function getNsave ($link,$tags) {
         if(isset($_POST['Link']) AND isset($_POST['TagGrinder']))
         {
             $tags->tags=$_POST['TagGrinder']['tags'];
@@ -51,25 +91,8 @@ class LinkController extends Controller
             'tags'=>$tags
 
         ));
-    }
-
-    public function actionLinkChecked()
-    {
 
     }
-
-    public function actionEdit()
-    {
-        if (isset($_GET['id'])) {
-            
-        }
-    }
-
-    public function actionLinkDrop()
-    {
-
-    }
-
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
