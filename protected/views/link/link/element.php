@@ -32,7 +32,7 @@
             </td>
             <td class="link-time" title="Дата последней проверки">
                 <?php
-                echo "<span>".substr($data->last_check,0,16)."</span>";
+                echo "<span id='recheck".$data->id."'>".substr($data->last_check,0,16)."</span>";
                 ?>
             </td>
         </tr>
@@ -51,7 +51,7 @@
             </td>
             <td>
                 <span class="link-actions">
-                    <?php if($data->hampster_id==Yii::app()->user->id OR Yii::app()->user->checkAccess('Cavy')) {?><a href="/index.php?r=link/edit&id=<?php echo $data->id;?>"><input type='button' name='edit' value='E' title='Редактировать'></a><?php }?><input type='button' name='recheck' value='R' title='Проверено'><input type='button' name='drop' value='X' title='Удалить'>
+                    <?php if($data->hampster_id==Yii::app()->user->id OR Yii::app()->user->checkAccess('Cavy')) {?><a href="/index.php?r=link/edit&id=<?php echo $data->id;?>"><input type='button' name='edit' value='E' title='Редактировать'></a><?php }?><input type='button' class='recheck' data-link_id="<?php echo $data->id;?>" value='R' title='Проверено'><input type='button' name='drop' value='X' title='Удалить'>
                 </span>
             </td>
         </tr>
