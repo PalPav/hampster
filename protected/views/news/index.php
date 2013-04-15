@@ -17,7 +17,16 @@
             row['news_id']=$(tr).find('.news-id').val();
             row['level']=1;
 
-
+            $.post("/index.php?r=news/CommentAdd",row,function(data){
+                if (data.success==true){
+                    $(elem).closest(".news-comment-body").find('.news-comment-branch').html(data.htmldata);
+                    $(area).val("");
+                        //мне кажется или можно по проще
+                }
+                else if (data.success==false) {
+                        //иначе что там не прошло валидацию!
+                }
+            }, "json");
         });
     });
 
