@@ -25,16 +25,30 @@ class LinkController extends Controller
 
     public function actionAdd()
     {
-
         $link = new Link;
         $tags = new TagGrinder;
         $this->getNsave($link,$tags);
-
     }
 
-    public function actionLinkChecked()
+    public function actionRecheck()
     {
-
+        if (isset($_POST['link_id'])) {
+            $result=array();
+            $result['success']=false;
+            $id=(int)$_POST['link_id'];
+            if ($id) {
+                $record=Link::model()->findByPk($id);
+                if (!is_null($record)) {
+                    $record->last_check = date("Y-m-d H:i:s");
+                    if ($record->update(array('last_check'))){
+                        $result['success']=true;
+                        $result['date']=substr($record->last_check,0,16);
+                    }
+                }
+            }
+            echo json_encode($result);
+        }
+        //2 do вывод ошибки из main errors
     }
 
     public function actionEdit()
