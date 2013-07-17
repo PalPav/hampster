@@ -3,7 +3,6 @@
     width: 100%;
     border: 3px olive double;
     border-radius: 5px;
-    background-color: #fff2d8;
 }
 
 .link {
@@ -56,4 +55,12 @@
 
 .link-actions > a{
     text-decoration: none;
+}
+
+.isp {
+    background-color: #fff2d8;
+}
+
+.isp1 {
+    background-color: #e8e9ff;
 }

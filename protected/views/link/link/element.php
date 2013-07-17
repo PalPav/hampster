@@ -9,7 +9,7 @@
 ?>
 
 
-<div class='link-item' align=center>
+<div class='link-item isp<?php echo $data->is_private;?>' align=center>
     <table class="link">
         <tr>
             <td class="link-favicon">
@@ -45,7 +45,7 @@
             <td colspan=2 class="link-tags" title="Тэги">
                 <?php
                 foreach ($data->tags as $tag) {
-                    echo "<a href='/index.php?r=link/index&tag=".$tag->id."' target='_blank'>#".$tag->tag."</a> ";
+                    echo "<a href='/index.php?r=link/index&tag_id=".$tag->id."'>#".$tag->tag."</a> ";
                 }
                 ?>
             </td>

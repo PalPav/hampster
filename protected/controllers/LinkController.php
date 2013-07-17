@@ -2,12 +2,22 @@
 
 class LinkController extends Controller
 {
-	public function actionIndex()
+	public function actionIndex($tag_id = 0)
 	{
+
+        $tag_id = (int) $tag_id;
+        if ($tag_id) {
+            $tag_where = ' AND "llt"."tag_id" = '.$tag_id;
+        } else {
+            $tag_where = '';
+        }
+
+
         $dataProvider=new CActiveDataProvider('Link', array(
             'criteria'=>array(
-                'condition'=>'(hampster_id='.Yii::app()->user->id.' AND is_private=true) OR is_private=false',
+                'condition'=>'((hampster_id='.Yii::app()->user->id.' AND is_private=true) OR is_private=false)'.$tag_where,
                 'order'=>'added desc',
+                'join' => 'JOIN "lnk_link_tag" "llt"  ON "t"."id" = "llt"."link_id"',
                 'with'=>array(
                     'hampster',
                     'tags'
